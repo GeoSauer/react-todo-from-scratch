@@ -4,14 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/UserContext';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* wrap entire app in UserProvider so that user is available anywhere within */}
-    <UserProvider>
-      <App />
-    </UserProvider>
+    {/* wrap everything in BrowserRouter so Nav/Links work */}
+    <BrowserRouter>
+      {/* wrap app in UserProvider so that user is available anywhere within */}
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
