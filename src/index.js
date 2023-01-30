@@ -8,6 +8,7 @@ import { UserProvider } from './context/UserContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* wrap entire app in UserProvider so that user is available anywhere within */}
     <UserProvider>
       <App />
     </UserProvider>
