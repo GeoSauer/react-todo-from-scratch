@@ -23,7 +23,7 @@ export default function Header() {
         <div className="app-name">todoms&apos;t!</div>
         {user && (
           <>
-            <div className="welcome">welcome {user.email}</div>
+            <div className="welcome">welcome, {user.email}</div>
             <div onClick={handleLogout}>Sign Out</div>
           </>
         )}

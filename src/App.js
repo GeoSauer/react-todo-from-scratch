@@ -13,6 +13,10 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/tasks" component={Tasks} />
+        <Route exact path="/auth">
+          {!user && <Redirect to="/auth/sign-in" />}
+          {user && <Redirect to="/tasks" />}
+        </Route>
         <Route exact path="/">
           {!user && <Redirect to="/auth/sign-in" />}
           {user && <Redirect to="/tasks" />}
