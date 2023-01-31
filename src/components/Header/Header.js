@@ -1,10 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
-import Auth from '../Auth/Auth';
+import { signOut } from '../../services/auth';
+// import Auth from '../Auth/Auth';
 import './Header.css';
 
 export default function Header() {
   const { user, setUser } = useUserContext();
+
+  const handleLogout = async () => {
+    try {
+      await signOut();
+      setUser(null);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
 
   return (
     <>
@@ -14,7 +24,7 @@ export default function Header() {
         {user && (
           <>
             <div className="welcome">welcome {user.email}</div>
-            <button>Sign Out</button>
+            <div onClick={handleLogout}>Sign Out</div>
           </>
         )}
         {/* if not authenticated show the links to sign up/in */}

@@ -19,3 +19,7 @@ export async function authUser(email, password, type) {
   // return the signed in user
   return response.user;
 }
+
+export async function signOut() {
+  await client.auth.signOut();
+}
