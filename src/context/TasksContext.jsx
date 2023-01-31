@@ -20,7 +20,8 @@ const TasksProvider = ({ children }) => {
       }
     };
     fetchTasks();
-  }, []);
+    // add tasks to the dependency array
+  }, [tasks]);
   return <TasksContext.Provider value={{ tasks, setTasks }}>{children}</TasksContext.Provider>;
 };
 

@@ -1,7 +1,7 @@
-import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import TaskForm from './TaskForm';
+import TaskList from './TaskList';
 
 export default function Tasks() {
   const { user } = useUserContext();
@@ -11,6 +11,7 @@ export default function Tasks() {
   }
   return (
     <div>
+      <TaskList />
       <TaskForm />
     </div>
   );

@@ -9,7 +9,9 @@ export default function TaskForm() {
   const handleNewTask = async () => {
     try {
       const task = await createTask(description);
+      // spread the current tasks into an array and add the newly created one to the end
       setTasks((prev) => [...prev, task]);
+      // reset the input
       setDescription('');
     } catch (error) {
       console.error(error.message);

@@ -23,6 +23,10 @@ a.active {
   text-decoration: underline;
 }
 
+input:focus {
+  outline: none;
+}
+
 .input-form {
   display: grid;
   justify-items: end;
@@ -37,7 +41,6 @@ a.active {
   border-radius: 5px;
   color: var(--color1);
   font-weight: 700;
-
   margin-bottom: 10px;
   width: fit-content;
 }

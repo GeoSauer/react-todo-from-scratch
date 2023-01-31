@@ -30,7 +30,8 @@ export default function Auth() {
   };
 
   //TODO add input validation for email/password
-  //TODO add 'already have create/create account' popups
+  //TODO add 'already have account/create account' popups
+  //TODO invalid password/email popups
 
   return (
     <div className="auth">
