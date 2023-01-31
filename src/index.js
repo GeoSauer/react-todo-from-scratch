@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './context/UserContext';
 import { BrowserRouter } from 'react-router-dom';
+import { TasksProvider } from './context/TasksContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,10 @@ root.render(
     <BrowserRouter>
       {/* wrap app in UserProvider so that user is available anywhere within */}
       <UserProvider>
-        <App />
+        {/* wrap app in TasksProvider so that tasks are available anywhere within */}
+        <TasksProvider>
+          <App />
+        </TasksProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
