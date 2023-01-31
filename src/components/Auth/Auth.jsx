@@ -29,6 +29,9 @@ export default function Auth() {
     }
   };
 
+  //TODO add input validation for email/password
+  //TODO add 'already have create/create account' popups
+
   return (
     <div className="auth">
       <h1>Welcome to TODOMS&apos;T!</h1>

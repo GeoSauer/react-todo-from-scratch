@@ -1,7 +1,5 @@
-import { Redirect } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import { signOut } from '../../services/auth';
-// import Auth from '../Auth/Auth';
 import './Header.css';
 
 export default function Header() {
