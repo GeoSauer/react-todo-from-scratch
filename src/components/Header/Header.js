@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useUserContext } from '../context/UserContext';
+import { useUserContext } from '../../context/UserContext';
+import './Header.css';
 
 export default function Header() {
   const { user, setUser } = useUserContext();
@@ -8,17 +9,18 @@ export default function Header() {
   //   };
 
   return (
-    <nav>
-      <header>TODOMS&apos;TS</header>
+    <>
       {/* if a user is authenticated show their email and the sign out button */}
-      <div className="navbar-info">
+      <div className="header">
+        <div className="app-name">todoms&apos;t list app!</div>
         {user && (
           <>
-            <div>Welcome {user.email}!</div>
+            <div className="welcome">welcome {user.email}</div>
             <button>Sign Out</button>
           </>
         )}
-        {!user && (
+        {/* if not authenticated show the links to sign up/in */}
+        {/* {!user && (
           <div className="buttons">
             <Link className="sign-up" to="/auth/sign-up">
               <span>Sign Up</span>
@@ -27,8 +29,8 @@ export default function Header() {
               <span>Sign In</span>
             </Link>
           </div>
-        )}
+        )} */}
       </div>
-    </nav>
+    </>
   );
 }

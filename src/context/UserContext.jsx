@@ -8,7 +8,8 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   // get current user from supabase client
   const currentUser = getUser();
-  //define initial user state as currentUser
+  // define initial user state as currentUser
+  // const [user, setUser] = useState();
   const [user, setUser] = useState(currentUser);
 
   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
