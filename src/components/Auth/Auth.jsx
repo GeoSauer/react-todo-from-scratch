@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Redirect, useParams } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import { authUser } from '../../services/auth';
 import './Auth.css';
@@ -7,8 +7,13 @@ import './Auth.css';
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // type = sign-in or sign-up
   const { type } = useParams();
   const { user, setUser } = useUserContext();
+
+  if (user) {
+    return <Redirect to="/tasks" />;
+  }
 
   const submitAuth = async () => {
     // call authUser with email, password, and type
