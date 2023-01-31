@@ -31,7 +31,7 @@ export default function Auth() {
       </div>
       <div className="input-form">
         <div className="field">
-          <label>Email</label>
+          <label>Email: </label>
           <input
             className="input"
             type="email"
@@ -41,7 +41,7 @@ export default function Auth() {
           />
         </div>
         <div className="field">
-          <label>Password</label>
+          <label>Password: </label>
           <input
             className="input"
             type="password"
