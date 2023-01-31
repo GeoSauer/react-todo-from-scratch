@@ -27,18 +27,6 @@ export default function Header() {
             <div onClick={handleLogout}>Sign Out</div>
           </>
         )}
-        {/* if not authenticated show the links to sign up/in */}
-        {/* {!user && (
-          <Auth />
-          <div className="buttons">
-            <Link className="sign-up" to="/auth/sign-up">
-              <span>Sign Up</span>
-            </Link>
-            <Link className="sign-in" to="/auth/sign-in">
-              <span>Sign In</span>
-            </Link>
-          </div>
-        )} */}
       </div>
     </>
   );

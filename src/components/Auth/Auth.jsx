@@ -21,6 +21,8 @@ export default function Auth() {
       const newUser = await authUser(email, password, type);
       // if successful setUser in context
       setUser(newUser);
+      // return to trigger re-render which triggers the redirect
+      return;
     } catch (error) {
       // else display error
       console.error(error);
