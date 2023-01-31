@@ -4,6 +4,7 @@ import { useUserContext } from '../../context/UserContext';
 
 export default function Tasks() {
   const { user } = useUserContext();
+  // quick auth check
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
