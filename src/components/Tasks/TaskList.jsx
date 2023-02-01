@@ -1,5 +1,5 @@
 import { useTasksContext } from '../../context/TasksContext';
-import { toggleTaskCompleted } from '../../services/tasks';
+import { deleteTask, toggleTaskCompleted } from '../../services/tasks';
 
 export default function TaskList() {
   const { tasks, setTasks } = useTasksContext();
@@ -14,8 +14,19 @@ export default function TaskList() {
       console.error(error.message);
     }
   };
+
+  const handleDelete = async (task) => {
+    try {
+      const deletedTask = await deleteTask(task);
+      setTasks((prevTasks) =>
+        prevTasks.map((prevTask) => (prevTask.id === task.id ? deletedTask : prevTask))
+      );
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
   return (
-    <>
+    <div className="task-list">
       {tasks.map((task) => (
         <div key={task.id}>
           <label className="checkbox">
@@ -26,8 +37,9 @@ export default function TaskList() {
             />
           </label>
           {task.description}
+          <button onClick={() => handleDelete(task.id)}>❌</button>
         </div>
       ))}
-    </>
+    </div>
   );
 }
