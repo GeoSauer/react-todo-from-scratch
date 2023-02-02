@@ -19,9 +19,7 @@ export default function TaskList() {
   const handleDelete = async (task) => {
     try {
       const deletedTask = await deleteTask(task);
-      setTasks((prevTasks) =>
-        prevTasks.map((prevTask) => (prevTask.id === task.id ? deletedTask : prevTask))
-      );
+      setTasks((prevTasks) => prevTasks.filter((prevTask) => prevTask.id !== deletedTask.id));
     } catch (error) {
       console.error(error.message);
     }
@@ -33,7 +31,7 @@ export default function TaskList() {
         <div key={task.id}>
           <input type="checkbox" checked={task.completed} onChange={() => handleCompleted(task)} />
           {task.description}
-          <button onClick={() => handleDelete(task.id)}>❌</button>
+          <button onClick={() => handleDelete(task.id)}>deyeet</button>
         </div>
       ))}
     </div>
