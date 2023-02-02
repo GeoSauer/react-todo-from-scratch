@@ -32,6 +32,7 @@ export default function Auth() {
   //TODO add input validation for email/password
   //TODO add 'already have account/create account' popups
   //TODO invalid password/email popups
+  //TODO add submit on enter
 
   return (
     <div className="auth">
@@ -62,7 +63,9 @@ export default function Auth() {
           />
         </div>
       </div>
-      <button onClick={submitAuth}>Submit</button>
+      <button type="submit" onClick={submitAuth}>
+        Submit
+      </button>
     </div>
   );
 }

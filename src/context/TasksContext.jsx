@@ -2,12 +2,16 @@ import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
 import { getTasks } from '../services/tasks';
+import { useUserContext } from './UserContext';
 
 const TasksContext = createContext();
 
 const TasksProvider = ({ children }) => {
   // set initial state to an empty to be populated by the fetch call
   const [tasks, setTasks] = useState([]);
+  // bringing in user from context to add to dependency array
+  const { user } = useUserContext();
+
   useEffect(() => {
     // fetch all tasks for current user
     const fetchTasks = async () => {
@@ -20,8 +24,7 @@ const TasksProvider = ({ children }) => {
       }
     };
     fetchTasks();
-    // add tasks to the dependency array
-  }, [tasks]);
+  }, [user]);
   return <TasksContext.Provider value={{ tasks, setTasks }}>{children}</TasksContext.Provider>;
 };
 
