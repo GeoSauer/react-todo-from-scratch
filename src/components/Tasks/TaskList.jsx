@@ -31,7 +31,7 @@ export default function TaskList() {
         <div key={task.id}>
           <input type="checkbox" checked={task.completed} onChange={() => handleCompleted(task)} />
           {task.description}
-          <button onClick={() => handleDelete(task.id)}>deyeet</button>
+          <button onClick={() => handleDelete(task.id)}>Deyeete</button>
         </div>
       ))}
     </div>

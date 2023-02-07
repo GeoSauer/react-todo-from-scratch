@@ -11,8 +11,8 @@ export default function Tasks() {
   }
   return (
     <div>
-      <TaskList />
       <TaskForm />
+      <TaskList />
     </div>
   );
 }
